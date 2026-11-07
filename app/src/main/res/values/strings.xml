@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AI Notification Assistant</string>
+    <string name="setup_title">Setup</string>
+    <string name="notification_access">Notification Access</string>
+    <string name="access_not_granted">Not granted</string>
+    <string name="access_granted">Granted</string>
+    <string name="grant_access_button">Open Notification Access Settings</string>
+    <string name="go_to_inbox">Continue to Inbox</string>
+    <string name="inbox_title">Inbox</string>
+    <string name="no_notifications">No notifications yet</string>
+    <string name="category_work">Work</string>
+    <string name="category_family">Family</string>
+    <string name="category_shopping">Shopping</string>
+    <string name="category_college">College</string>
+    <string name="category_other">Other</string>
+    <string name="no_title">(no title)</string>
+    <string name="no_text">(no text)</string>
+    <string name="debug_log_title">Debug Log</string>
+</resources>
