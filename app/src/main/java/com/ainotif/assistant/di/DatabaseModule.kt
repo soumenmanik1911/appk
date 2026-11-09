@@ -1,6 +1,7 @@
 package com.ainotif.assistant.di
 
 import android.content.Context
+import com.ainotif.assistant.database.ActionDao
 import com.ainotif.assistant.database.AppDatabase
 import com.ainotif.assistant.database.NotifDao
 import com.ainotif.assistant.database.NotifRepository
@@ -22,13 +23,19 @@ object DatabaseModule {
 
     @Provides
     @SingletonComponent
-    fun provideDao(database: AppDatabase): NotifDao {
+    fun provideNotifDao(database: AppDatabase): NotifDao {
         return database.notifDao()
     }
 
     @Provides
     @SingletonComponent
-    fun provideRepository(dao: NotifDao): NotifRepository {
-        return NotifRepository(dao)
+    fun provideActionDao(database: AppDatabase): ActionDao {
+        return database.actionDao()
+    }
+
+    @Provides
+    @SingletonComponent
+    fun provideRepository(dao: NotifDao, actionDao: ActionDao): NotifRepository {
+        return NotifRepository(dao, actionDao)
     }
 }

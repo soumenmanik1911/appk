@@ -30,3 +30,7 @@
 .env
 *.env
 .env.*
+.dev.vars
+neon.ts
+.neon
+node_modules/

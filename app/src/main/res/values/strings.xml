@@ -16,4 +16,17 @@
     <string name="no_title">(no title)</string>
     <string name="no_text">(no text)</string>
     <string name="debug_log_title">Debug Log</string>
+    <string name="insights_title">Insights</string>
+    <string name="insights_no_data">No stats yet. Act on notifications to see learned delays.</string>
+    <string name="insights_learned_delay">Learned delay: %d min</string>
+    <string name="insights_acceptance_title">Suggestions accepted</string>
+    <string name="insights_acceptance_subtitle">% of times you picked the suggested option</string>
+    <string name="insights_acceptance_no_data">Not enough data yet</string>
+    <string name="insights_button">Insights</string>
+    <string name="sync_to_cloud">Sync to cloud</string>
+    <string name="delete_cloud_data">Delete my cloud data</string>
+    <string name="delete_confirm_title">Delete cloud data</string>
+    <string name="delete_confirm_text">This will delete all your synced data from the cloud and turn off sync. This cannot be undone.</string>
+    <string name="delete_confirm_delete">Delete</string>
+    <string name="delete_confirm_cancel">Cancel</string>
 </resources>

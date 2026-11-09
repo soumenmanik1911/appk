@@ -13,5 +13,7 @@ data class NotifEntity(
     val text: String?,
     val category: String,
     val postedAt: Long,
-    val status: String = "pending"
+    val status: String = "pending",
+    @ColumnInfo(name = "synced")
+    val synced: Boolean = false
 )

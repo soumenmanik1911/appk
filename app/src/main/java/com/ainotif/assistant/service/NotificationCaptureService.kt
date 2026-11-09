@@ -3,6 +3,7 @@ package com.ainotif.assistant.service
 import android.content.Context
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
+import com.ainotif.assistant.MyApplication
 import com.ainotif.assistant.categorizer.categorize
 import com.ainotif.assistant.database.AppDatabase
 import com.ainotif.assistant.database.NotifRepository
@@ -19,7 +20,8 @@ class NotificationCaptureService : NotificationListenerService() {
         super.onCreate()
         LogCollector.info("Notification listener connected")
         val db = AppDatabase.getDatabase(applicationContext)
-        repository = NotifRepository(db.notifDao())
+        repository = NotifRepository(db.notifDao(), db.actionDao())
+        (applicationContext as MyApplication).repository = repository
     }
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
@@ -33,8 +35,8 @@ class NotificationCaptureService : NotificationListenerService() {
             val category = categorize(pkg, title, text)
 
             scope.launch {
-                repository.insert(pkg, title, text, category, postedAt)
-                LogCollector.info("Notification saved: pkg=$pkg category=$category")
+                val id = repository.insert(pkg, title, text, category, postedAt)
+                LogCollector.info("Notification saved: id=$id pkg=$pkg category=$category")
             }
         } catch (e: Exception) {
             LogCollector.error("Failed to save notification: ${e.message}")
